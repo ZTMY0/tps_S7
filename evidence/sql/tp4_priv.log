@@ -1,0 +1,53 @@
+SQL> BEGIN
+  2    DBMS_PRIVILEGE_CAPTURE.DISABLE_CAPTURE('tp4_capture');
+  3    DBMS_PRIVILEGE_CAPTURE.GENERATE_RESULT('tp4_capture');
+  4  END;
+  5  /
+
+PL/SQL procedure successfully completed.
+
+SQL> COLUMN username FORMAT A22
+SQL> COLUMN sys_priv FORMAT A22
+SQL> COLUMN object_name FORMAT A22
+SQL> PROMPT -- privileges used by the app user
+-- privileges used by the app user
+SQL> SELECT username, sys_priv, object_owner, object_name FROM dba_used_privs
+  2   WHERE capture = 'tp4_capture' AND username = 'ACCOUNT_MGR_PARIS_01';
+
+USERNAME               SYS_PRIV               OBJECT_OWNER                                                                                                                     OBJECT_NAME              
+---------------------- ---------------------- -------------------------------------------------------------------------------------------------------------------------------- ----------------------   
+ACCOUNT_MGR_PARIS_01                          SYS                                                                                                                              DUAL                     
+ACCOUNT_MGR_PARIS_01                          BANK_OWNER                                                                                                                       CUSTOMERS                
+ACCOUNT_MGR_PARIS_01                          BANK_OWNER                                                                                                                       ACCOUNTS                 
+ACCOUNT_MGR_PARIS_01   CREATE SESSION                                                                                                                                                                   
+ACCOUNT_MGR_PARIS_01                          SYS                                                                                                                              DBMS_APPLICATION_INFO    
+
+SQL> PROMPT -- privileges granted but never used by the app user
+-- privileges granted but never used by the app user
+SQL> SELECT username, sys_priv FROM dba_unused_privs
+  2   WHERE capture = 'tp4_capture' AND username = 'ACCOUNT_MGR_PARIS_01';
+
+USERNAME               SYS_PRIV                                                                                                                                                                         
+---------------------- ----------------------                                                                                                                                                           
+ACCOUNT_MGR_PARIS_01                                                                                                                                                                                    
+ACCOUNT_MGR_PARIS_01                                                                                                                                                                                    
+ACCOUNT_MGR_PARIS_01                                                                                                                                                                                    
+ACCOUNT_MGR_PARIS_01                                                                                                                                                                                    
+ACCOUNT_MGR_PARIS_01                                                                                                                                                                                    
+ACCOUNT_MGR_PARIS_01   SELECT ANY TABLE                                                                                                                                                                 
+ACCOUNT_MGR_PARIS_01                                                                                                                                                                                    
+ACCOUNT_MGR_PARIS_01                                                                                                                                                                                    
+
+8 rows selected.
+
+SQL> REVOKE SELECT ANY TABLE FROM bank_operator;
+
+Revoke succeeded.
+
+SQL> PROMPT -- after REVOKE
+-- after REVOKE
+SQL> SELECT grantee, privilege FROM dba_sys_privs WHERE grantee = 'BANK_OPERATOR';
+
+no rows selected
+
+SQL> SPOOL OFF

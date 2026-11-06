@@ -1,0 +1,34 @@
+
+LSNRCTL for Linux: Version 19.0.0.0.0 - Production on 06-NOV-2026 06:21:46
+
+Copyright (c) 1991, 2019, Oracle.  All rights reserved.
+
+Connecting to (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=secbank.local)(PORT=1521)))
+STATUS of the LISTENER
+------------------------
+Alias                     LISTENER
+Version                   TNSLSNR for Linux: Version 19.0.0.0.0 - Production
+Start Date                06-NOV-2026 05:50:15
+Uptime                    0 days 0 hr. 31 min. 31 sec
+Trace Level               off
+Security                  ON: Local OS Authentication
+SNMP                      OFF
+Listener Parameter File   /u01/app/oracle/product/19.0.0/dbhome_1/network/admin/listener.ora
+Listener Log File         /u01/app/oracle/diag/tnslsnr/secbank/listener/alert/log.xml
+Listening Endpoints Summary...
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=secbank.local)(PORT=1521)))
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC1521)))
+Services Summary...
+Service "5b97ed9fa278c808e063760d0c0af077.local" has 1 instance(s).
+  Instance "SECBANK", status READY, has 1 handler(s) for this service...
+Service "5dca6fe5f1270eefe063760d0c0a052b.local" has 1 instance(s).
+  Instance "SECBANK", status READY, has 1 handler(s) for this service...
+Service "SECBANK.local" has 1 instance(s).
+  Instance "SECBANK", status READY, has 1 handler(s) for this service...
+Service "SECBANKXDB.local" has 1 instance(s).
+  Instance "SECBANK", status READY, has 1 handler(s) for this service...
+Service "secbankpdb.local" has 1 instance(s).
+  Instance "SECBANK", status READY, has 1 handler(s) for this service...
+Service "<AUTRE_PDB>.local" has 1 instance(s).
+  Instance "SECBANK", status READY, has 1 handler(s) for this service...
+The command completed successfully

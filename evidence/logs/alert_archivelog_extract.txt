@@ -1,0 +1,11 @@
+[oracle@secbank evidence_kit]$ grep -n -B4 -A4 "ALTER DATABASE ARCHIVELOG" $ORACLE_BASE/diag/rdbms/secbank/SECBANK/trace/alert_SECBANK.log | head -40
+3124-Lost write protection disabled
+3125-.... (PID:97952): Using STANDBY_ARCHIVE_DEST parameter default value as USE_DB_RECOVERY_FILE_DEST [krsd.c:18157]
+3126-Completed: ALTER DATABASE   MOUNT
+3127-2026-09-30T06:10:41.452385-04:00
+3128:ALTER DATABASE ARCHIVELOG
+3129:Completed: ALTER DATABASE ARCHIVELOG
+3130-2026-09-30T06:10:46.875743-04:00
+3131-ALTER DATABASE OPEN
+3132-2026-09-30T06:10:46.978459-04:00
+3133-Ping without log force is disabled:

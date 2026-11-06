@@ -1,0 +1,28 @@
+# TDE / wallet material
+ewallet.p12
+cwallet.sso
+*.p12
+*.sso
+# RMAN pieces
+*.bkp
+# logs: ignore all, keep curated evidence
+*.log
+!evidence/**/*.log
+# shell history and raw session logs
+.bash_history
+*history*
+*_seance2_log*
+# installer response files (may hold passwords)
+*.rsp
+
+# S1 PDF contains the real VM IP; archives; datafiles; config backups; env files
+*.pdf
+*.zip
+*.dbf
+*.arc
+*.bak
+*.bak.*
+.env
+# course statements and CTF files (contain credentials)
+enonce*
+*ctf*
