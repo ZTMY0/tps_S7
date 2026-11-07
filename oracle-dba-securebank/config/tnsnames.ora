@@ -1,0 +1,30 @@
+SECBANK_CDB =
+  (DESCRIPTION =
+    (CONNECT_TIMEOUT = 10)
+    (RETRY_COUNT = 3)
+    (ADDRESS = (PROTOCOL = TCP)(HOST = secbank.local)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = SECBANK.local)
+    )
+  )
+
+SECBANKPDB =
+  (DESCRIPTION =
+    (CONNECT_TIMEOUT = 10)
+    (RETRY_COUNT = 3)
+    (ADDRESS = (PROTOCOL = TCP)(HOST = secbank.local)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = SECBANKPDB.local)
+    )
+  )
+
+SB =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = secbank.local)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = SECBANKPDB.local)
+    )
+  )

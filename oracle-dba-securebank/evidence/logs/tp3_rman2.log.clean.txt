@@ -1,0 +1,97 @@
+
+Recovery Manager: Release 19.0.0.0.0 - Production on Wed Oct 28 06:37:06 2026
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle and/or its affiliates.	 All rights reserved.
+
+connected to target database: SECBANK (DBID=1570269626)
+
+RMAN> SET ENCRYPTION ON IDENTIFIED BY ******** ONLY;
+2> BACKUP AS COMPRESSED BACKUPSET
+3>   TABLESPACE SECBANKPDB:SYSTEM, SECBANKPDB:SYSAUX, SECBANKPDB:UNDOTBS1, SECBANKPDB:USERS, SECBANKPDB:AUDIT_DATA
+4>   TAG 'SECBANKPDB_NO_TDE';
+5> BACKUP AS COMPRESSED BACKUPSET ARCHIVELOG ALL NOT BACKED UP TAG 'ARCH_CHIFFRE';
+6> SET DECRYPTION IDENTIFIED BY ********
+7> RESTORE TABLESPACE SECBANKPDB:USERS, SECBANKPDB:AUDIT_DATA VALIDATE;
+8> LIST BACKUP SUMMARY;
+9>
+executing command: SET encryption
+using target database control file instead of recovery catalog
+
+Starting backup at 28-OCT-26
+allocated channel: ORA_DISK_1
+channel ORA_DISK_1: SID=34 device type=DISK
+channel ORA_DISK_1: starting compressed full datafile backup set
+channel ORA_DISK_1: specifying datafile(s) in backup set
+input datafile file number=00018 name=/u01/app/oracle/oradata/SECBANK/SECBANKPDB/audit_data01.dbf
+input datafile file number=00010 name=/u01/app/oracle/oradata/SECBANK/SECBANKPDB/sysaux01.dbf
+input datafile file number=00009 name=/u01/app/oracle/oradata/SECBANK/SECBANKPDB/system01.dbf
+input datafile file number=00011 name=/u01/app/oracle/oradata/SECBANK/SECBANKPDB/undotbs01.dbf
+input datafile file number=00012 name=/u01/app/oracle/oradata/SECBANK/SECBANKPDB/users01.dbf
+channel ORA_DISK_1: starting piece 1 at 28-OCT-26
+channel ORA_DISK_1: finished piece 1 at 28-OCT-26
+piece handle=/u01/app/oracle/fast_recovery_area/SECBANK/5B97ED9FA278C808E063760D0C0AF077/backupset/2026_10_28/o1_mf_nnndf_SECBANKPDB_NO_TDE_og3n2nyx_.bkp tag=SECBANKPDB_NO_TDE comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:25
+Finished backup at 28-OCT-26
+
+Starting Control File and SPFILE Autobackup at 28-OCT-26
+piece handle=/u01/app/oracle/fast_recovery_area/SECBANK/autobackup/2026_10_28/o1_mf_s_1247812654_og3n3g93_.bkp comment=NONE
+Finished Control File and SPFILE Autobackup at 28-OCT-26
+
+Starting backup at 28-OCT-26
+current log archived
+using channel ORA_DISK_1
+skipping archived logs of thread 1 from sequence 8 to 24; already backed up
+channel ORA_DISK_1: starting compressed archived log backup set
+channel ORA_DISK_1: specifying archived log(s) in backup set
+input archived log thread=1 sequence=25 RECID=18 STAMP=1247812655
+channel ORA_DISK_1: starting piece 1 at 28-OCT-26
+channel ORA_DISK_1: finished piece 1 at 28-OCT-26
+piece handle=/u01/app/oracle/fast_recovery_area/SECBANK/backupset/2026_10_28/o1_mf_annnn_ARCH_CHIFFRE_og3n3h5l_.bkp tag=ARCH_CHIFFRE comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:01
+Finished backup at 28-OCT-26
+
+Starting Control File and SPFILE Autobackup at 28-OCT-26
+piece handle=/u01/app/oracle/fast_recovery_area/SECBANK/autobackup/2026_10_28/o1_mf_s_1247812656_og3n3j73_.bkp comment=NONE
+Finished Control File and SPFILE Autobackup at 28-OCT-26
+
+executing command: SET decryption
+
+Starting restore at 28-OCT-26
+using channel ORA_DISK_1
+
+channel ORA_DISK_1: starting validation of datafile backup set
+channel ORA_DISK_1: reading from backup piece /u01/app/oracle/fast_recovery_area/SECBANK/5B97ED9FA278C808E063760D0C0AF077/backupset/2026_10_28/o1_mf_nnndf_SECBANKPDB_NO_TDE_og3n2nyx_.bkp
+channel ORA_DISK_1: piece handle=/u01/app/oracle/fast_recovery_area/SECBANK/5B97ED9FA278C808E063760D0C0AF077/backupset/2026_10_28/o1_mf_nnndf_SECBANKPDB_NO_TDE_og3n2nyx_.bkp tag=SECBANKPDB_NO_TDE
+channel ORA_DISK_1: restored backup piece 1
+channel ORA_DISK_1: validation complete, elapsed time: 00:00:07
+Finished restore at 28-OCT-26
+
+
+List of Backups
+===============
+Key	TY LV S Device Type Completion Time #Pieces #Copies Compressed Tag
+------- -- -- - ----------- --------------- ------- ------- ---------- ---
+1	B  F  A DISK	    30-SEP-26	    1	    1	    NO	       TAG20260930T062038
+2	B  F  A DISK	    30-SEP-26	    1	    1	    NO	       TAG20260930T070400
+3	B  F  A DISK	    30-SEP-26	    1	    1	    NO	       TAG20260930T074402
+4	B  F  A DISK	    07-OCT-26	    1	    1	    NO	       TAG20261007T073111
+5	B  A  A DISK	    07-OCT-26	    1	    1	    YES	       TAG20261007T082025
+6	B  F  A DISK	    07-OCT-26	    1	    1	    YES	       TAG20261007T082032
+7	B  F  A DISK	    07-OCT-26	    1	    1	    YES	       TAG20261007T082032
+8	B  F  A DISK	    07-OCT-26	    1	    1	    YES	       TAG20261007T082032
+9	B  A  A DISK	    07-OCT-26	    1	    1	    YES	       TAG20261007T082147
+10	B  F  A DISK	    07-OCT-26	    1	    1	    NO	       TAG20261007T082148
+11	B  F  A DISK	    14-OCT-26	    1	    1	    NO	       TAG20261014T052816
+12	B  F  A DISK	    14-OCT-26	    1	    1	    NO	       TAG20261014T055816
+13	B  F  A DISK	    28-OCT-26	    1	    1	    NO	       TAG20261028T061009
+14	B  A  A DISK	    28-OCT-26	    1	    1	    YES	       FULL_CHIFFRE
+15	B  F  A DISK	    28-OCT-26	    1	    1	    YES	       TAG20261028T063427
+16	B  F  A DISK	    28-OCT-26	    1	    1	    YES	       TAG20261028T063427
+17	B  F  A DISK	    28-OCT-26	    1	    1	    YES	       TAG20261028T063427
+18	B  F  A DISK	    28-OCT-26	    1	    1	    YES	       SECBANKPDB_NO_TDE
+19	B  F  A DISK	    28-OCT-26	    1	    1	    NO	       TAG20261028T063734
+20	B  A  A DISK	    28-OCT-26	    1	    1	    YES	       ARCH_CHIFFRE
+21	B  F  A DISK	    28-OCT-26	    1	    1	    NO	       TAG20261028T063736
+
+Recovery Manager complete.

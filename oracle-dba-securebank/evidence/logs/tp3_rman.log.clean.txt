@@ -1,0 +1,123 @@
+
+Recovery Manager: Release 19.0.0.0.0 - Production on Wed Oct 28 06:33:37 2026
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle and/or its affiliates.	 All rights reserved.
+
+connected to target database: SECBANK (DBID=1570269626)
+
+RMAN> CONFIGURE ENCRYPTION FOR DATABASE ON;
+2> CONFIGURE ENCRYPTION ALGORITHM 'AES256';
+3> CONFIGURE RETENTION POLICY TO RECOVERY WINDOW OF 30 DAYS;
+4> CONFIGURE CONTROLFILE AUTOBACKUP ON;
+5> SET ENCRYPTION ON IDENTIFIED BY ******** ONLY;
+6> BACKUP AS COMPRESSED BACKUPSET DATABASE PLUS ARCHIVELOG
+7>   FORMAT '/u01/app/oracle/backup/secbank/full_%d_%T_%s_%p.bkp'
+8>   TAG 'FULL_CHIFFRE';
+9> SET DECRYPTION IDENTIFIED BY ********
+10> RESTORE DATABASE VALIDATE;
+11> LIST BACKUP SUMMARY;
+12>
+using target database control file instead of recovery catalog
+new RMAN configuration parameters:
+CONFIGURE ENCRYPTION FOR DATABASE ON;
+new RMAN configuration parameters are successfully stored
+
+new RMAN configuration parameters:
+CONFIGURE ENCRYPTION ALGORITHM 'AES256';
+new RMAN configuration parameters are successfully stored
+
+new RMAN configuration parameters:
+CONFIGURE RETENTION POLICY TO RECOVERY WINDOW OF 30 DAYS;
+new RMAN configuration parameters are successfully stored
+
+old RMAN configuration parameters:
+CONFIGURE CONTROLFILE AUTOBACKUP ON;
+new RMAN configuration parameters:
+CONFIGURE CONTROLFILE AUTOBACKUP ON;
+new RMAN configuration parameters are successfully stored
+
+executing command: SET encryption
+
+
+Starting backup at 28-OCT-26
+current log archived
+allocated channel: ORA_DISK_1
+channel ORA_DISK_1: SID=407 device type=DISK
+channel ORA_DISK_1: starting compressed archived log backup set
+channel ORA_DISK_1: specifying archived log(s) in backup set
+input archived log thread=1 sequence=8 RECID=1 STAMP=1245306835
+input archived log thread=1 sequence=9 RECID=2 STAMP=1245310269
+input archived log thread=1 sequence=10 RECID=3 STAMP=1245362475
+input archived log thread=1 sequence=11 RECID=4 STAMP=1245470455
+input archived log thread=1 sequence=12 RECID=5 STAMP=1245996834
+input archived log thread=1 sequence=13 RECID=6 STAMP=1245999674
+input archived log thread=1 sequence=14 RECID=7 STAMP=1246003835
+input archived log thread=1 sequence=15 RECID=8 STAMP=1246004257
+input archived log thread=1 sequence=16 RECID=9 STAMP=1246004424
+input archived log thread=1 sequence=17 RECID=10 STAMP=1246004507
+input archived log thread=1 sequence=18 RECID=11 STAMP=1246071641
+input archived log thread=1 sequence=19 RECID=12 STAMP=1246150868
+input archived log thread=1 sequence=20 RECID=13 STAMP=1246598299
+input archived log thread=1 sequence=21 RECID=14 STAMP=1246658422
+input archived log thread=1 sequence=22 RECID=15 STAMP=1246669248
+input archived log thread=1 sequence=23 RECID=16 STAMP=1247810112
+input archived log thread=1 sequence=24 RECID=17 STAMP=1247812421
+channel ORA_DISK_1: starting piece 1 at 28-OCT-26
+channel ORA_DISK_1: finished piece 1 at 28-OCT-26
+piece handle=/u01/app/oracle/backup/secbank/full_SECBANK_20261028_15_1.bkp tag=FULL_CHIFFRE comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:45
+Finished backup at 28-OCT-26
+
+Starting backup at 28-OCT-26
+using channel ORA_DISK_1
+channel ORA_DISK_1: starting compressed full datafile backup set
+channel ORA_DISK_1: specifying datafile(s) in backup set
+input datafile file number=00018 name=/u01/app/oracle/oradata/SECBANK/SECBANKPDB/audit_data01.dbf
+input datafile file number=00019 name=/u01/app/oracle/oradata/SECBANK/SECBANKPDB/transactions_data02.dbf
+input datafile file number=00010 name=/u01/app/oracle/oradata/SECBANK/SECBANKPDB/sysaux01.dbf
+input datafile file number=00009 name=/u01/app/oracle/oradata/SECBANK/SECBANKPDB/system01.dbf
+input datafile file number=00011 name=/u01/app/oracle/oradata/SECBANK/SECBANKPDB/undotbs01.dbf
+input datafile file number=00012 name=/u01/app/oracle/oradata/SECBANK/SECBANKPDB/users01.dbf
+channel ORA_DISK_1: starting piece 1 at 28-OCT-26
+RMAN-03009: failure of backup command on ORA_DISK_1 channel at 10/28/2026 06:34:28
+ORA-19836: cannot use passphrase encryption for this backup
+continuing other job steps, job failed will not be re-run
+channel ORA_DISK_1: starting compressed full datafile backup set
+channel ORA_DISK_1: specifying datafile(s) in backup set
+input datafile file number=00001 name=/u01/app/oracle/oradata/SECBANK/system01.dbf
+input datafile file number=00003 name=/u01/app/oracle/oradata/SECBANK/sysaux01.dbf
+input datafile file number=00004 name=/u01/app/oracle/oradata/SECBANK/undotbs01.dbf
+input datafile file number=00007 name=/u01/app/oracle/oradata/SECBANK/users01.dbf
+channel ORA_DISK_1: starting piece 1 at 28-OCT-26
+channel ORA_DISK_1: finished piece 1 at 28-OCT-26
+piece handle=/u01/app/oracle/fast_recovery_area/SECBANK/backupset/2026_10_28/o1_mf_nnndf_TAG20261028T063427_og3mxnnp_.bkp tag=TAG20261028T063427 comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:45
+channel ORA_DISK_1: starting compressed full datafile backup set
+channel ORA_DISK_1: specifying datafile(s) in backup set
+input datafile file number=00021 name=/u01/app/oracle/oradata/SECBANK/<AUTRE_PDB>/sysaux01.dbf
+input datafile file number=00020 name=/u01/app/oracle/oradata/SECBANK/<AUTRE_PDB>/system01.dbf
+input datafile file number=00022 name=/u01/app/oracle/oradata/SECBANK/<AUTRE_PDB>/undotbs01.dbf
+input datafile file number=00024 name=/u01/app/oracle/oradata/SECBANK/<AUTRE_PDB>/arene_data01.dbf
+channel ORA_DISK_1: starting piece 1 at 28-OCT-26
+channel ORA_DISK_1: finished piece 1 at 28-OCT-26
+piece handle=/u01/app/oracle/fast_recovery_area/SECBANK/5DCA6FE5F1270EEFE063760D0C0A052B/backupset/2026_10_28/o1_mf_nnndf_TAG20261028T063427_og3mz1ox_.bkp tag=TAG20261028T063427 comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:25
+channel ORA_DISK_1: starting compressed full datafile backup set
+channel ORA_DISK_1: specifying datafile(s) in backup set
+input datafile file number=00006 name=/u01/app/oracle/oradata/SECBANK/pdbseed/sysaux01.dbf
+input datafile file number=00005 name=/u01/app/oracle/oradata/SECBANK/pdbseed/system01.dbf
+input datafile file number=00008 name=/u01/app/oracle/oradata/SECBANK/pdbseed/undotbs01.dbf
+channel ORA_DISK_1: starting piece 1 at 28-OCT-26
+channel ORA_DISK_1: finished piece 1 at 28-OCT-26
+piece handle=/u01/app/oracle/fast_recovery_area/SECBANK/5B97CCCD2298C1FDE063760D0C0AE2E4/backupset/2026_10_28/o1_mf_nnndf_TAG20261028T063427_og3mzttz_.bkp tag=TAG20261028T063427 comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:15
+RMAN-00571: ===========================================================
+RMAN-00569: =============== ERROR MESSAGE STACK FOLLOWS ===============
+RMAN-00571: ===========================================================
+RMAN-03002: failure of backup plus archivelog command at 10/28/2026 06:35:53
+
+RMAN-03009: failure of backup command on ORA_DISK_1 channel at 10/28/2026 06:34:28
+ORA-19836: cannot use passphrase encryption for this backup
+
+Recovery Manager complete.

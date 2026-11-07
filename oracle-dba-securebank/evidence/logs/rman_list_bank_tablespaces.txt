@@ -1,0 +1,5 @@
+# Run on the VM on 2026-11-06 (after the reports were first drafted)
+RMAN> LIST BACKUP OF TABLESPACE SECBANKPDB:ACCOUNTS_DATA, SECBANKPDB:TRANSACTIONS_DATA;
+
+using target database control file instead of recovery catalog
+specification does not match any backup in the repository

@@ -1,0 +1,3 @@
+<resources>
+    <style name="Theme.AuditProbe" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
+</resources>

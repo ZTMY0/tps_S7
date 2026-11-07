@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.fintrust.vault">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="false"
+        android:label="FinTrustVault"
+        android:theme="@style/Theme.FinTrustVault">
+
+        <activity android:name=".LoginActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".NotesListActivity" android:exported="false" />
+
+        <!-- V1 : écran sensible exporté sans nouvelle vérification -->
+        <activity android:name=".SettingsActivity" android:exported="true" />
+
+        <!-- V2 : fournisseur de contenu exporté, sans permission dédiée -->
+        <provider
+            android:name=".NotesProvider"
+            android:authorities="com.fintrust.vault.provider"
+            android:exported="true" />
+
+        <!-- V3 : récepteur d'effacement exporté, sans permission dédiée -->
+        <receiver android:name=".WipeReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="com.fintrust.vault.ACTION_WIPE" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>

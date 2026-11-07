@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.fintrust.vault">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Permission personnalisée de niveau signature : seule une application
+         signée avec la même clé que FinTrustVault peut l'obtenir. -->
+    <permission
+        android:name="com.fintrust.vault.permission.WIPE_DATA"
+        android:protectionLevel="signature" />
+
+    <application
+        android:allowBackup="false"
+        android:label="FinTrustVault"
+        android:theme="@style/Theme.FinTrustVault">
+
+        <activity android:name=".LoginActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".NotesListActivity" android:exported="false" />
+
+        <!-- V1 corrigé : l'écran de paramètres n'a plus besoin d'être exporté,
+             il n'est accessible que depuis NotesListActivity. -->
+        <activity android:name=".SettingsActivity" android:exported="false" />
+
+        <!-- V2 corrigé : le fournisseur n'a plus besoin d'être exporté,
+             seule FinTrustVault elle même l'utilise. -->
+        <provider
+            android:name=".NotesProvider"
+            android:authorities="com.fintrust.vault.provider"
+            android:exported="false" />
+
+        <!-- V3 corrigé : le récepteur reste exporté (cas d'usage réel : un
+             futur outil d'administration signé par la même clé doit pouvoir
+             l'invoquer) mais exige désormais la permission signature. -->
+        <receiver
+            android:name=".WipeReceiver"
+            android:exported="true"
+            android:permission="com.fintrust.vault.permission.WIPE_DATA">
+            <intent-filter>
+                <action android:name="com.fintrust.vault.ACTION_WIPE" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>

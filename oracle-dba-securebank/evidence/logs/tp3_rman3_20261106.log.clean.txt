@@ -1,0 +1,37 @@
+# Run on the VM on 2026-11-06 07:09 (complement run; passphrase masked)
+Recovery Manager: Release 19.0.0.0.0 - Production on Fri Nov 6 07:09:33 2026
+connected to target database: SECBANK (DBID=1570269626)
+
+RMAN> SET ENCRYPTION ON IDENTIFIED BY ******** ONLY;
+RMAN> BACKUP AS COMPRESSED BACKUPSET TABLESPACE SECBANKPDB:ACCOUNTS_DATA, SECBANKPDB:TRANSACTIONS_DATA TAG 'SECBANKPDB_DATA';
+RMAN> SET DECRYPTION IDENTIFIED BY ********;
+RMAN> RESTORE TABLESPACE SECBANKPDB:ACCOUNTS_DATA, SECBANKPDB:TRANSACTIONS_DATA VALIDATE;
+RMAN> LIST BACKUP OF TABLESPACE SECBANKPDB:ACCOUNTS_DATA, SECBANKPDB:TRANSACTIONS_DATA;
+executing command: SET encryption
+
+Starting backup at 06-NOV-26
+channel ORA_DISK_1: starting compressed full datafile backup set
+input datafile file number=00028 name=/u01/app/oracle/oradata/SECBANK/SECBANKPDB/accounts_data01.dbf
+input datafile file number=00029 name=/u01/app/oracle/oradata/SECBANK/SECBANKPDB/transactions_data01.dbf
+channel ORA_DISK_1: starting piece 1 at 06-NOV-26
+channel ORA_DISK_1: finished piece 1 at 06-NOV-26
+piece handle=/u01/app/oracle/fast_recovery_area/SECBANK/5B97ED9FA278C808E063760D0C0AF077/backupset/2026_11_06/o1_mf_nnndf_SECBANKPDB_DATA_ogvjz0r7_.bkp tag=SECBANKPDB_DATA comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:01
+Finished backup at 06-NOV-26
+
+Starting Control File and SPFILE Autobackup at 06-NOV-26
+Finished Control File and SPFILE Autobackup at 06-NOV-26
+
+executing command: SET decryption
+
+Starting restore at 06-NOV-26
+channel ORA_DISK_1: starting validation of datafile backup set
+channel ORA_DISK_1: restored backup piece 1
+channel ORA_DISK_1: validation complete, elapsed time: 00:00:01
+Finished restore at 06-NOV-26
+
+BS Key  Type LV Size       Device Type Elapsed Time Completion Time
+24      Full    1.06M      DISK        00:00:01     06-NOV-26
+        BP Key: 24   Status: AVAILABLE  Compressed: YES  Tag: SECBANKPDB_DATA
+  28      Full 3837815    06-NOV-26              NO    /u01/app/oracle/oradata/SECBANK/SECBANKPDB/accounts_data01.dbf
+  29      Full 3837815    06-NOV-26              NO    /u01/app/oracle/oradata/SECBANK/SECBANKPDB/transactions_data01.dbf
