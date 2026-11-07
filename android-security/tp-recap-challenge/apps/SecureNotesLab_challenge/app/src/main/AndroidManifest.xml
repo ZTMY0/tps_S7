@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lab.securenotes">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <permission
+        android:name="com.lab.securenotes.permission.READ_NOTES"
+        android:protectionLevel="signature" />
+    <application
+        android:allowBackup="true"
+        android:label="SecureNotesLab"
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@style/Theme.AppCompat.Light">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".NotesListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NoteDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfilActivity"
+            android:exported="false" />
+        <provider
+            android:name=".NotesProvider"
+            android:authorities="com.lab.securenotes.provider"
+            android:exported="true"
+            android:readPermission="com.lab.securenotes.permission.READ_NOTES" />
+    </application>
+</manifest>
+
