@@ -1,0 +1,11 @@
+﻿Phase: avant
+Date: 2026-11-07 14:33
+lastUpdateTime=2026-11-07 14:24:34
+pkgFlags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA TEST_ONLY ALLOW_BACKUP KILL_AFTER_RESTORE ]
+
+V1 secret en clair dans le dex         VULNERABLE : classes3.dex contient : vault-demo-2026 | classes3.dex contient : DEMO_SESSION_TOKEN_2026
+V5 token dans logcat                   VULNERABLE : 11-07 14:32:56.203 24742 24742 D MobileVaultLab: Debug token=DEMO_SESSION_TOKEN_2026
+V2 prefs en clair (token/note)         VULNERABLE : session_token en clair, private_note en clair, flag logged_in present
+V4 Base64 reversible sans cle          VULNERABLE : decode -> NoteSecreteLab42
+V6 sauvegarde des prefs                VULNERABLE : vault_lab.xml extrait de la sauvegarde
+V3 contournement par flag logged_in    VULNERABLE : acces sans mot de passe -> Note : NOTE_FORGEE_SANS_MOT_DE_PASSE

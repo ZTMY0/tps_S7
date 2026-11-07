@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+
+<map>
+
+    <boolean name="logged_in" value="true" />
+
+    <string name="private_note">NOTE_FORGEE_SANS_MOT_DE_PASSE</string>
+
+</map>

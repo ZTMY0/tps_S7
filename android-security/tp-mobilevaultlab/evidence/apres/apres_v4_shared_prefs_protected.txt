@@ -1,0 +1,5 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <string name="private_note">+jOH9VpDKzfi18Qm+ZaLX69Ujhr0haBa5CsuJwApgJl5BcyKUG19x3+fGUs=</string>
+    <string name="protected_note">C2GdAS/KJw2Z2ZqAHurh77Y80VdbUMpVns0hCcktrlRKFR1qdn0wsQqORpU=</string>
+</map>

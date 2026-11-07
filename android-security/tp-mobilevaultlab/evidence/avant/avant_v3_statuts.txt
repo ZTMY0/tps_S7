@@ -1,0 +1,2 @@
+﻿au demarrage : Application démarrée. Session locale : true
+apres Lire note : Note : NOTE_FORGEE_SANS_MOT_DE_PASSE

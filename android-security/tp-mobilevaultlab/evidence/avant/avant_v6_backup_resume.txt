@@ -1,0 +1,4 @@
+﻿flags: pkgFlags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA TEST_ONLY ALLOW_BACKUP KILL_AFTER_RESTORE ]
+ALLOW_BACKUP: True
+taille backup.ab: 1173 octets
+vault_lab.xml dans la sauvegarde: True

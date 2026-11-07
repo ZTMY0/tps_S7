@@ -1,0 +1,2 @@
+﻿au demarrage : Application démarrée. Session locale : false
+apres Lire note : Accès refusé : session locale absente

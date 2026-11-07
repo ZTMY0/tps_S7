@@ -1,0 +1,2 @@
+﻿--------- beginning of main
+11-07 14:32:56.203 24742 24742 D MobileVaultLab: Debug token=DEMO_SESSION_TOKEN_2026

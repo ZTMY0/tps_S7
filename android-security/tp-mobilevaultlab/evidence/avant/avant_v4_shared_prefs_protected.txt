@@ -1,0 +1,7 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <string name="session_token">DEMO_SESSION_TOKEN_2026</string>
+    <boolean name="logged_in" value="true" />
+    <string name="private_note">NoteSecreteLab42</string>
+    <string name="protected_note">Tm90ZVNlY3JldGVMYWI0Mg==</string>
+</map>

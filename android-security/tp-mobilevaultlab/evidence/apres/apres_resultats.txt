@@ -1,0 +1,11 @@
+﻿Phase: apres
+Date: 2026-11-07 14:36
+lastUpdateTime=2026-11-07 14:34:51
+pkgFlags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA TEST_ONLY ]
+
+V1 secret en clair dans le dex         OK : absent du dex
+V5 token dans logcat                   OK : aucune trace du token
+V2 prefs en clair (token/note)         OK : ni token ni note en clair
+V4 Base64 reversible sans cle          OK : decodage Base64 ne donne pas le clair (chiffrement)
+V6 sauvegarde des prefs                VULNERABLE : vault_lab.xml extrait de la sauvegarde
+V3 contournement par flag logged_in    OK : acces refuse -> Accès refusé : session locale absente

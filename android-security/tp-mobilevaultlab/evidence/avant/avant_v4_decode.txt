@@ -1,0 +1,2 @@
+﻿protected_note = Tm90ZVNlY3JldGVMYWI0Mg==
+decode Base64 sans cle = NoteSecreteLab42
