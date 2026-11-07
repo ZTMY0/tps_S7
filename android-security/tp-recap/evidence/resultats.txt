@@ -1,0 +1,81 @@
+Rapport automatique - 11/07/2026 12:29:41
+Installation d'AttackLab
+  [build] AttackLab ...
+Installation de SecureNotesLab VULNERABLE
+  [build] SecureNotesLab (vulnerable) ...
+
+=============== ETAPE : avant ===============
+  [sortie]  evidence\avant_00_uid.txt
+[Test 0] sandbox : AttackLab lit le stockage prive de SecureNotesLab
+  [capture] evidence\avant_T0_attacklab.png
+  [sortie]  evidence\avant_T0_runas.txt
+  verdict : BLOQUE par Android (sandbox)
+[Attaque 1] Activity sensible exportee
+  [sortie]  evidence\avant_A1_adb.txt
+  [capture] evidence\avant_A1_adb.png
+  (adb shell possede START_ANY_ACTIVITY : il ignore 'exported'. Le test qui fait foi est celui d'AttackLab.)
+  [capture] evidence\avant_A1_attacklab.png
+  [sortie]  evidence\avant_A1_ecran.txt
+  verdict A1 : ATTAQUE REUSSIE (zone interne ouverte sans connexion)
+[Attaque 2] Intent non valide (noteId = ../admin_config)
+  [sortie]  evidence\avant_A2_adb.txt
+  [capture] evidence\avant_A2_adb.png
+  [capture] evidence\avant_A2_attacklab.png
+  [sortie]  evidence\avant_A2_ecran.txt
+  verdict A2 : ATTAQUE REUSSIE (entree non validee, config admin affichee)
+[Attaque 6] permission != autorisation (dossier de bob)
+  [sortie]  evidence\avant_A6_adb.txt
+  [capture] evidence\avant_A6_adb.png
+  [capture] evidence\avant_A6_attacklab.png
+  [sortie]  evidence\avant_A6_ecran.txt
+  verdict A6 : ATTAQUE REUSSIE (dossier de Bob affiche)
+[Attaques 3 et 5] logs et stockage local
+  [capture] evidence\avant_A3_accueil.png
+  [capture] evidence\avant_A3_profil.png
+  [sortie]  evidence\avant_A3_logcat.txt
+  verdict A3 : FUITE : jeton visible dans les logs
+  [sortie]  evidence\avant_A5_prefs.txt
+  verdict A5 : JETON LISIBLE EN CLAIR
+[Attaque 4] secret code en dur dans l'APK
+  [sortie]  evidence\avant_A4_apk.txt
+  verdict A4 : SECRET RETROUVE dans classes.dex (DEMO-KEY-12345)
+Installation de SecureNotesLab CORRIGE
+  [build] SecureNotesLab (corrige) ...
+
+=============== ETAPE : apres ===============
+  [sortie]  evidence\apres_00_uid.txt
+[Test 0] sandbox : AttackLab lit le stockage prive de SecureNotesLab
+  [capture] evidence\apres_T0_attacklab.png
+  [sortie]  evidence\apres_T0_runas.txt
+  verdict : BLOQUE par Android (sandbox)
+[Attaque 1] Activity sensible exportee
+  [sortie]  evidence\apres_A1_adb.txt
+  [capture] evidence\apres_A1_adb.png
+  (adb shell possede START_ANY_ACTIVITY : il ignore 'exported'. Le test qui fait foi est celui d'AttackLab.)
+  [capture] evidence\apres_A1_attacklab.png
+  [sortie]  evidence\apres_A1_ecran.txt
+  verdict A1 : ATTAQUE BLOQUEE (composant non exporte)
+[Attaque 2] Intent non valide (noteId = ../admin_config)
+  [sortie]  evidence\apres_A2_adb.txt
+  [capture] evidence\apres_A2_adb.png
+  [capture] evidence\apres_A2_attacklab.png
+  [sortie]  evidence\apres_A2_ecran.txt
+  verdict A2 : ATTAQUE BLOQUEE
+[Attaque 6] permission != autorisation (dossier de bob)
+  [sortie]  evidence\apres_A6_adb.txt
+  [capture] evidence\apres_A6_adb.png
+  [capture] evidence\apres_A6_attacklab.png
+  [sortie]  evidence\apres_A6_ecran.txt
+  verdict A6 : ATTAQUE BLOQUEE
+[Attaques 3 et 5] logs et stockage local
+  [capture] evidence\apres_A3_accueil.png
+  [capture] evidence\apres_A3_profil.png
+  [sortie]  evidence\apres_A3_logcat.txt
+  verdict A3 : PAS DE FUITE (message present, sans le jeton)
+  [sortie]  evidence\apres_A5_prefs.txt
+  verdict A5 : VALEUR ILLISIBLE (chiffree)
+[Attaque 4] secret code en dur dans l'APK
+  [sortie]  evidence\apres_A4_apk.txt
+  verdict A4 : AUCUNE CORRESPONDANCE
+
+Termine. Captures et sorties dans : C:\Users\RR\Downloads\lab-projects\evidence

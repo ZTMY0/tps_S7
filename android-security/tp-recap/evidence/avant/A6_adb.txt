@@ -1,0 +1,2 @@
+Starting: Intent { cmp=com.lab.securenotes/.DossierActivity (has extras) }
+

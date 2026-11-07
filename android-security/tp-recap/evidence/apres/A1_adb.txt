@@ -1,0 +1,30 @@
+Starting: Intent { cmp=com.lab.securenotes/.AdminActivity }
+adb : 
+At C:\Users\RR\Downloads\lab-projects\run_lab.ps1:130 char:10
++     $r = adb shell am start -n "$Sec/.AdminActivity" 2>&1 | Out-Strin ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Exception occurred while executing 'start':
+java.lang.SecurityException: Permission Denial: starting Intent { flg=0x10000000 xflg=0x4 
+cmp=com.lab.securenotes/.AdminActivity } from null (pid=13250, uid=2000) not exported from uid 10237
+	at com.android.server.wm.Session$$ExternalSyntheticBUOutline1.m(R8$$SyntheticClass:0)
+	at com.android.server.wm.ActivityTaskSupervisor.checkStartAnyActivityPermission(ActivityTaskSupervisor.java:1298)
+	at com.android.server.wm.ActivityStarter.executeRequest(ActivityStarter.java:1343)
+	at com.android.server.wm.ActivityStarter.execute(ActivityStarter.java:945)
+	at com.android.server.wm.ActivityTaskManagerService.startActivityAsUser(ActivityTaskManagerService.java:1377)
+	at com.android.server.wm.ActivityTaskManagerService.startActivityAsUser(ActivityTaskManagerService.java:1320)
+	at com.android.server.am.ActivityManagerService.startActivityAsUserWithFeature(ActivityManagerService.java:4121)
+	at com.android.server.am.ActivityManagerShellCommand.runStartActivity(ActivityManagerShellCommand.java:906)
+	at com.android.server.am.ActivityManagerShellCommand.onCommand(ActivityManagerShellCommand.java:265)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:40)
+	at com.android.server.am.ActivityManagerService.onShellCommand(ActivityManagerService.java:11651)
+	at android.os.Binder.shellCommand(Binder.java:1061)
+	at android.os.Binder.onTransact(Binder.java:921)
+	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:5884)
+	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:3555)
+	at android.os.Binder.execTransactInternal(Binder.java:1347)
+	at android.os.Binder.execTransact(Binder.java:1301)
+

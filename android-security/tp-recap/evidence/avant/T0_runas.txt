@@ -1,0 +1,8 @@
+adb : ls: /data/data/com.lab.securenotes/: Permission denied
+At C:\Users\RR\Downloads\lab-projects\run_lab.ps1:123 char:10
++     $r = adb shell run-as $Atk ls /data/data/$Sec/ 2>&1 | Out-String
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (ls: /data/data/...rmission denied:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+

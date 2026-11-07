@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="false"
+        android:label="SecureNotesLab"
+        android:theme="@style/Theme.SecureNotesLab">
+
+        <activity android:name=".MainActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- VULNERABLE: composants exportes -->
+        <activity android:name=".AdminActivity" android:exported="true" />
+        <activity android:name=".NoteDetailActivity" android:exported="true" />
+        <activity android:name=".DossierActivity" android:exported="true" />
+
+    </application>
+</manifest>

@@ -1,0 +1,3 @@
+ |  |  |  |  | Note (id=../admin_config)
+
+CONFIG ADMIN (fictif) : mode=debug ; cle=DEMO-ADMIN |  |  | SecureNotesLab

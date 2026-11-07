@@ -1,0 +1,5 @@
+
+11-07 12:30:55.568 12587 12587 D SecureNotesLab: Authentification terminee, token = demo_token_7A91
+
+
+
