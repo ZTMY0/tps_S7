@@ -1,4 +1,4 @@
-# Travaux pratiques
+﻿# Travaux pratiques
 
-- `securite-oracle/` : sécurité d'Oracle Database 19c
-- `securite-smartphone/` : sécurité des smartphones
+- `oracle-dba-securebank/` : sécurité d'Oracle Database 19c
+- `android-security/` : sécurité des smartphones (Android)
